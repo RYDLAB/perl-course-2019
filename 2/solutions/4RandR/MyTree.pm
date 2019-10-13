@@ -63,7 +63,7 @@ sub tree_size_i {
     my $size = 0;
     my $path;
 
-    while ( !@_ ) {
+    while ( @_ ) {
         $path = shift;
 
         if ( -f $path ) { $size += -s $path; }
