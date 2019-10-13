@@ -40,12 +40,14 @@ sub tree_size {
     my $path = shift;
     my $size = 0;
 
-    if ( -f $path ) { return -s $path; }
+    return -s $path if -f $path;
 
     opendir ( my $current_dir, $path );
 
     for (readdir $current_dir) {
-        unless ( $_ eq '.' || $_ eq '..') { $size += tree_size( "$path/$_" ); }
+
+        next if $_ eq '.' || $_ eq '..';
+        $size += tree_size( "$path/$_" );
     }
 
     $size;
@@ -71,7 +73,8 @@ sub tree_size_i {
             opendir ( my $current_dir, $path );
 
             for (readdir $current_dir) {
-                unless ( $_ eq '.' || $_ eq '..' ) { push @_, "$path/$_"; }
+                next if $_ eq '.' || $_ eq '..';
+                push @_, "$path/$_";
             }
         } 
     }
@@ -103,15 +106,15 @@ sub tree {
     my $path = shift;
     my $tree = {};
 
-    if ( -f $path ) { return -s $path; }
+    return -s $path if -f $path;
 
     opendir ( my $current_dir, $path );
 
     for (readdir $current_dir) {
-        unless ( $_ eq '.' || $_ eq '..' ) {
-            $tree -> { $_ } = tree( "$path/$_" );
-        }
+        next if $_ eq '.' || $_ eq '..';
+        $tree -> { $_ } = tree( "$path/$_" );
     }
+
     $tree;
 }
 
