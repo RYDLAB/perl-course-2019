@@ -99,7 +99,7 @@ sub tree {
 
     return -s _ if -f $filename;
 
-	my $tree = {};
+    my $tree = {};
     if(-d $filename && opendir DIR, $filename) {
         my @files = grep {$_ ne '.' && $_ ne '..'} readdir DIR;
         closedir DIR;
