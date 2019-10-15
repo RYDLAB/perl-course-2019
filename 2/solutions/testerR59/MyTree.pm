@@ -41,9 +41,9 @@ sub tree_size {
     return -s _ if -f $filename;
 
     my $total_size = 0;
-    if(-d $filename && opendir DIR, $filename) {
-        my @files = grep {$_ ne '.' && $_ ne '..'} readdir DIR;
-        closedir DIR;
+    if(-d $filename && opendir my $dir, $filename) {
+        my @files = grep {$_ ne '.' && $_ ne '..'} readdir $dir;
+        closedir $dir;
         $total_size += tree_size("$filename/$_") for @files;
     }
 
@@ -65,9 +65,9 @@ sub tree_size_i {
     while(@stack){
         my $filename = pop @stack;
         $total_size += -s _ if -f $filename;
-        if(-d $filename && opendir DIR, $filename){
-            my @files = grep {$_ ne '.' && $_ ne '..'} readdir DIR;
-            closedir DIR;
+        if(-d $filename && opendir my $dir, $filename){
+            my @files = grep {$_ ne '.' && $_ ne '..'} readdir $dir;
+            closedir $dir;
             push @stack, map {"$filename/$_"} @files;
         }
     }
@@ -100,9 +100,9 @@ sub tree {
     return -s _ if -f $filename;
 
     my $tree = {};
-    if(-d $filename && opendir DIR, $filename) {
-        my @files = grep {$_ ne '.' && $_ ne '..'} readdir DIR;
-        closedir DIR;
+    if(-d $filename && opendir my $dir, $filename) {
+        my @files = grep {$_ ne '.' && $_ ne '..'} readdir $dir;
+        closedir $dir;
         $tree->{$_} = tree("$filename/$_") for @files;
     }
 
