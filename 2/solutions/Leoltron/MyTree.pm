@@ -41,7 +41,7 @@ sub tree_size {
 
     opendir(my $dir_handle, $path);
     my $result = 0;
-    map {$result += tree_size("$path/$_")} grep {$_ !~ /^\.\.?$/} readdir $dir_handle;
+    $result += tree_size("$path/$_") foreach grep {$_ !~ /^\.\.?$/} readdir $dir_handle;
     closedir $dir_handle;
 
     return $result;
@@ -56,7 +56,7 @@ sub tree_size {
 =cut
 
 sub tree_size_i {
-    my @queue = ($_[0]);
+    my @queue = shift;
     my $size = 0;
 
     while (my $path = shift @queue) {
