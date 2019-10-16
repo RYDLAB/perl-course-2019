@@ -37,7 +37,7 @@ our @EXPORT_OK = qw ( tree_size tree_size_i tree );
 =cut
 
 sub tree_size {
-    my $dir = $_[0];
+    my $dir = shift;
     if (-f $dir ) {return -s $dir;}
     elsif(-d $dir) {
         opendir(my $dh, $dir);
@@ -45,7 +45,7 @@ sub tree_size {
         my @files = readdir($dh);
         foreach my $file (@files) {
             next if $file =~ /^\.\.?$/; # Нашел это выражение для пропуска директорий '.' '..' во внешнем источнике
-            $sum += tree_size($dir . '/' . $file);
+            $sum += tree_size("$dir/$file");
         }
         return $sum;
     }
@@ -59,8 +59,7 @@ sub tree_size {
 =cut
 
 sub tree_size_i {
-
-
+    
 
 }
 
@@ -84,17 +83,17 @@ sub tree_size_i {
 =cut
 
 sub tree {
-    my $dir = $_[0];
+    my $dir = shift;
     my %hash;
     if (-f $dir) {
         return -s $dir;
     }
     else {
-        opendir(DIR, $dir) or die "can't opendir $dir";
-	    my @files = readdir(DIR);
+        opendir(my $dh, $dir) or die "can't opendir $dir";
+	    my @files = readdir($dh);
         foreach my $file (@files) {
             next if $file =~ /^\.\.?$/;             # Нашел это выражение для пропуска директорий '.' '..' во внешнем источнике
-            $hash{$file} = tree($dir . '/' . $file);
+            $hash{$file} = tree("$dir/$file");
         }
         return \%hash;
     }
