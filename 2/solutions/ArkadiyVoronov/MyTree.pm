@@ -33,7 +33,7 @@ sub tree_size {
         my $sum = 0;
         my @files = readdir($dh);
         foreach my $file (@files) {
-            next if $file =~ /^\.\.?$/; # Нашел это выражение для пропуска директорий '.' '..' во внешнем источнике
+            next if $file =~ /^\.\.?$/; # Выражение для пропуска директорий '.' '..' во внешнем источнике
             $sum += tree_size("$dir/$file");
         }
         return $sum;
