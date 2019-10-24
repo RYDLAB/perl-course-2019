@@ -36,15 +36,15 @@ our @EXPORT_OK = qw ( tree_size tree_size_i tree );
 =cut
 
 sub tree_size {
- my $file = shift; 
- my $size = 0;
-return -s $file if -f $file;
-opendir( my $dir, $file );
-my @sm = grep {!/^\./} readdir( $dir );
-foreach my $sm( @sm ) {
-$size += tree_size("$file/$sm");
+    my $file = shift; 
+    my $size = 0;
+    return -s $file if -f $file;
+    opendir( my $dir, $file );
+    my @sm = grep {!/^\.+$/} readdir( $dir );
+    foreach my $sm( @sm ) {
+       $size += tree_size("$file/$sm");
 }
-return $size;
+    return $size;
 }
 
 =head2 tree_size_i()
@@ -67,7 +67,6 @@ sub tree_size_i {
 
     my $size = tree( './foo.txt' );
 
-https://habr.com/ru/auth/register/
     my $tree = tree( './a' );
 
 Если содержимое каталога './a' равно a/b/foo.txt, где foo.txt имеет размер 4 байта:
@@ -81,13 +80,13 @@ https://habr.com/ru/auth/register/
 sub tree {
     my $file=shift;
     my %hash;
-return -s $file if -f $file;
-opendir (my $dir, $file); 
-my @sm = grep {!/^\./} readdir($dir);
-foreach my $sm(@sm) {
-$hash{$sm} = tree("$file/$sm");
+    return -s $file if -f $file;
+    opendir (my $dir, $file); 
+    my @sm = grep {!/^\.+$/} readdir($dir);
+    foreach my $sm(@sm) {
+       $hash{$sm} = tree("$file/$sm");
 }
-return \%hash;
+    return \%hash;
 }
 
 
