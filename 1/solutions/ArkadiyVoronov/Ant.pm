@@ -43,7 +43,7 @@ $dir_x/$dir_y - направление муравья. Пример:
 sub travel {
   my ( $field, $pos_x, $pos_y, $steps, $dir_x, $dir_y ) = @_ ;
   my $field_size=@$field;
-  for ( my $i = 0; $i < $steps; $i++ ) {
+  for ( 0 ... $steps ) {
     if ($field -> [$pos_x][$pos_y] == 1) {
           ($dir_x, $dir_y) = turn( $dir_x, $dir_y, TURN_RIGHT);
            $field -> [$pos_x][$pos_y] = -1;
