@@ -15,6 +15,7 @@ open(my $file, '<:encoding(UTF-8)', $file_name) or die "Can't open $file_name: $
 my $english = 'aceopxABCEHMOPTX';
 my $russian = 'асеорхАВСЕНМОРТХ';
 while(<$file>){
+    print, next if /^[^a-z]+$/i || /^[^а-яё]+$/i;
     eval "tr/$russian/$english/" unless grep {/[^$russian]/} /[а-яА-Я]/g;
     eval "tr/$english/$russian/" unless grep {/[^$english]/} /[a-zA-Z]/g;
     print
