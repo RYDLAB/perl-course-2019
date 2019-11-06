@@ -3,7 +3,7 @@
 # 2. Напишите ряд однострочников (минимум 4), которые помогут найти ошибки в словах.
 # Результат выводится в STDOUT. Вывод может быть избыточен (т.е. содержать и правильные слова тоже).
 
-cat russian.txt | perl -ne 'binmode STDIN, cp1251; print if /^.*(жы|шы).*$/'
-cat russian.txt | perl -ne 'binmode STDIN, cp1251; print if /^.*(чя|щя).*$/'
-cat russian.txt | perl -ne 'binmode STDIN, cp1251; print if /^.*(чьк|чьн|ньч).*$/'
-cat russian.txt | perl -ne 'binmode STDIN, cp1251; print if /^.*(чю|щю).*$/'
+perl -Mutf8 -Mopen=':encoding(cp1251)' -C -pe '/[жш]ы or $_ = "" ' russian.txt
+perl -Mutf8 -Mopen=':encoding(cp1251)' -C -pe '/[чщ][яю]/ or $_= "" ' russian.txt
+perl -Mutf8 -Mopen=':encoding(cp1251)' -C -pe '/чь[кн]|ньч/ or $_= "" ' russian.txt
+perl -Mutf8 -Mopen=':encoding(cp1251)' -C -pe '/цы.+/ or $_= "" ' russian.txt

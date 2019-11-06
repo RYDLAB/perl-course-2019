@@ -10,8 +10,8 @@ my $encoding = ':encoding(UTF-8)';
 binmode STDOUT, $encoding;
 open(my $fh, "< $encoding", $file_name);
 while (<$fh>) {
-   $_ =~ s/(\w?+)(\w+)(\w{1})/$1 . (reverse $2) . $3/gxe;
-   print $_;
+   s/(\w?+)(\w+)(\w{1})/$1 . (reverse $2) . $3/gxe;
+   print;
 }
 
 __END__
