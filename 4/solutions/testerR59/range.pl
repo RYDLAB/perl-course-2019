@@ -6,17 +6,44 @@ use Pod::Usage qw(pod2usage);
 
 pod2usage( -verbose => 99 ) if -t STDIN;
 
-my $comment=<<'comment';
 my $letter = 'a-zA-Z';
-my $str = <>;
+my $str = <STDIN>;
 
-$str =~ s/([$letter])[^$letter]*([$letter])[^$letter]*([$letter])/ord($1) - ord($2) == ord($2) - ord($3) && abs(ord($2) - ord($3)) == 1 ? "$1-$3" : $&/eg;
-$str =~ s/([$letter])-([$letter])[^$letter]*([$letter])($|[^-])/(ord($1) - ord($2))*(ord($2) - ord($3)) > 0 && abs(ord($2) - ord($3)) == 1 ? "$1-$3" : $&/eg;
-$str =~ s/([$letter])-([$letter])[^$letter]*([$letter])-([$letter])/(ord($1) - ord($2))*(ord($2) - ord($3)) > 0 && (ord($2) - ord($3))*(ord($3) - ord($4)) > 0 && abs(ord($2) - ord($3)) == 1 ? "$1-$4" : $&/eg;
+my $answer;
+my $re1 = qr/
+    (?<!-) ([$letter]) [^$letter-]* ([$letter]) [^$letter-]* ([$letter]) (?!-)
+    (??{
+        $answer = "$1-$3";
+        ord($1) - ord($2) == ord($2) - ord($3) && abs(ord($2) - ord($3)) == 1
+        ? '(*ACCEPT)'
+        : '(*FAIL)'
+    })
+/x;
+my $re2 = qr/
+    ([$letter])-([$letter]) [^$letter]* ([$letter]) (?!-)
+    (??{
+        $answer = "$1-$3";
+        (ord($1) - ord($2))*(ord($2) - ord($3)) > 0 && abs(ord($2) - ord($3)) == 1
+        ? '(*ACCEPT)'
+        : '(*FAIL)'
+    })
+/x;
+my $re3 = qr/
+    ([$letter])-([$letter]) [^$letter]* ([$letter])-([$letter])
+    (??{
+        $answer = "$1-$4";
+        (ord($1) - ord($2))*(ord($2) - ord($3)) > 0 && (ord($2) - ord($3))*(ord($3) - ord($4)) > 0 && abs(ord($2) - ord($3)) == 1
+        ? '(*ACCEPT)'
+        : '(*FAIL)'
+    })
+/x;
+
+1 while $str =~ s/ (?| $re1 | $re2 | $re3 ) / $answer /xeg;
 
 print $str;
-comment
 
+
+my $comment=<<'big piece of C';
 # perl is hard
 #  viva la C
 
@@ -64,6 +91,7 @@ search_second:
         redo search_third
     }
 }
+big piece of C
 
 __END__
 =pod
