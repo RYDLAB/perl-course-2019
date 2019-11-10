@@ -19,7 +19,7 @@ open(my $fh, "< $encoding", $file_name) or die "Can't open $file_name : $!";
 while (<$fh>) {
     if (/[$eng_spy]+/ && /[$rus_other]+/) {eval "y/$eng_spy/$rus_spy/"}
     elsif (/[$rus_spy]+/ && /[$eng_other]+/) {eval "y/$rus_spy/$eng_spy/"}
-    print $_;
+    print;
 }
 
 __END__
