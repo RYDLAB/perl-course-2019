@@ -11,14 +11,13 @@ my $encoding = ':encoding(UTF-8)';
 binmode STDOUT, $encoding;
 
 my $eng_spy = 'aceoprxyABCEHKMOPTX';
-my $eng_other = 'bdfghijklmnqstuvwz';
 my $rus_spy = 'асеоргхуАВСЕНКМОРТХ';
-my $rus_other = 'бвдёжзийклмнптфцщчшщъыьэюя';
 
 open(my $fh, "< $encoding", $file_name) or die "Can't open $file_name : $!";
+
 while (<$fh>) {
-    if (/[$eng_spy]+/ && /[$rus_other]+/) {eval "y/$eng_spy/$rus_spy/"}
-    elsif (/[$rus_spy]+/ && /[$eng_other]+/) {eval "y/$rus_spy/$eng_spy/"}
+    eval "y/$rus_spy/$eng_spy/" if / [a-zA-Z]+ [$rus_spy]+ | [$rus_spy]+ [a-zA-Z]+ /x;
+    eval "y/$eng_spy/$rus_spy/" if / [а-яА-Я]+ [$eng_spy]+ | [$eng_spy]+ [а-яА-Я]+ /x;
     print;
 }
 
