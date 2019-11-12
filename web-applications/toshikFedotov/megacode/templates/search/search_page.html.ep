@@ -1,0 +1,7 @@
+% layout 'default';
+% title 'Search snippets';
+<h1>Searching</h1>
+<form action='/search' method='POST'>
+    <input type='text' name='title' placeholder='snippet title'>
+    <input type='submit' value='Search'>
+</form>

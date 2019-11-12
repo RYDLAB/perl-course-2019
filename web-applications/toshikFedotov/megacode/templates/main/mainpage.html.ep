@@ -1,0 +1,18 @@
+% layout 'default';
+% title 'Megacode';
+%= stylesheet 'main/snippets.css';
+
+% for my $i (0 .. 9) { 
+    <section class='snippet'>
+        <a href=<%= '/snippet/id/' . $snippets->[$i]{id} %>>
+            <h2 class='snippet-title'><%= $snippets->[$i]{title} %></h2>
+        </a>
+        <p><%= $snippets->[$i]{creating_date} %></p>
+        <div class='file-info'>
+            <span><%= $snippets->[$i]{file}{title}  %>, <%= $snippets->[$i]{language}  %> </span> 
+        </div>
+        <div class='code-place'>
+            <pre><%= $snippets->[$i]{file}{content}  %></pre>
+        </div>
+    </section>
+% }

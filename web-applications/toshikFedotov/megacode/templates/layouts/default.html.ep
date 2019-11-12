@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/main/style.css">
+  </head>
+  <body>
+      <header class="main-header">
+        <a href='/'><image width='96px' src='/main/megacode-logo.png' alt='Megacode'></a>
+        <a href='/snippet/new'>
+            <span class='main-header-item'>Create</span>
+        </a>
+        <a href='/search'>
+            <span class='main-header-item'>Search</span>
+        </a>
+        <a href='/about'>
+            <span class='main-header-item'>About</span>
+        </a>
+      </header>
+
+      <%= content %>
+
+      <footer class="main-footer">
+          <a href='https://vk.com/vedmak_geralt'>
+            <img class='socials-logos' src='/main/vk_logo.png'>
+          </a>
+      </footer>
+  </body>
+</html>

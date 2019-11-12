@@ -1,0 +1,31 @@
+body {
+    position: relative;
+    min-height: 100%;
+    font-size: 16px;
+    background: #adfff8;
+}
+
+.main-header {
+    width: auto;
+    padding: 10px;
+    background: #90b9ff;
+}
+
+.main-header-item {
+    margin-left: 20px; 
+}
+
+.main-header-item:hover {
+    color: blue;
+}
+
+.main-footer {
+    width: 100%;
+    border-top: 1px solid black;
+    margin-top: 50px;
+}
+
+.main-footer .socials-logos {
+    width: 64px;
+    margin: 10px;
+}
