@@ -6,28 +6,19 @@ use utf8;
 use Pod::Usage qw(pod2usage);
 
 binmode STDOUT, ':encoding(UTF-8)';
+
 my $file_name = pop @ARGV;
 
 pod2usage( -verbose => 99 ) unless defined $file_name;
 
+open (my $filehandle, '<:encoding(UTF-8)', $file_name) or die "couldn't open '$file_name': $!";
 
-my $original_text = my $parsed_text = do {
-    local $/ = undef;
+my $original_text = join '', <$filehandle>;
 
-    open (my $filehandle, '<:encoding(UTF-8)', $file_name) or die "couldn't open '$file_name': $!";
+close($filehandle);
 
-    <$filehandle>;
-};
-
-while ($original_text =~ /\b(.)([а-яА-Я]*?)([^\s]?)\b/g) {
-    my $first = $1;
-    my $second = reverse $2;
-    my $third = $3;
-
-    $parsed_text =~ s/$&/$first$second$third/;
-}
-
-print $parsed_text;
+$original_text =~ s/(\w)([\w]{2,})(\w)/$1.(reverse $2).$3/eg;
+print $original_text;
 
 __END__
 =encoding UTF-8
