@@ -20,8 +20,8 @@ sub find_relation {
 }
 my $chars = join(" ", <STDIN>);
 
-$chars =~ /([^a-z]+)/;
-my $separator = $1 || "";
+$chars =~ /[^a-z]+/;
+my $separator = $& || "";
 $chars =~ s/[^a-z]//g;
 
 my @return_list;
@@ -29,10 +29,8 @@ my $start;
 my $end;
 my $seq_length = 1;
 my $seq_direction = 0;
-my $c;
 
-foreach $c (split //, $chars) {
-    cycle_start:
+foreach my $c (split //, $chars) {
     if (!$start) {
         $start = $end = $c;
         next
@@ -56,7 +54,7 @@ foreach $c (split //, $chars) {
             push @return_list, $start;
             $start = $end;
             $seq_length = 1;
-            goto cycle_start;
+            redo;
         }
         else {
             push @return_list, "$start-$end";

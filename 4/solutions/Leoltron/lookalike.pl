@@ -20,15 +20,15 @@ sub chars_from_same_language {
 }
 
 binmode(STDOUT, ":utf8");
-open FH, "< :utf8", $file_name or die $!;
+open my $fh, "< :utf8", $file_name or die $!;
 
-while (<FH>) {
+while (<$fh>) {
     unless (chars_from_same_language($_)) {
         eval(/[qwrtuisdfghjklzvbnmQWRYUISDFGJKLZVN]/ ? $rus_to_eng : $eng_to_rus);
     }
     print $_
 }
-close(FH);
+close $fh;
 
 
 __END__
