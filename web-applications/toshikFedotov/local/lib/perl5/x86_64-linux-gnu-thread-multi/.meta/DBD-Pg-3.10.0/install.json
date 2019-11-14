@@ -1,0 +1,1 @@
+{"name":"DBD::Pg","provides":{"Bundle::DBD::Pg":{"version":"v3.10.0","file":"lib/Bundle/DBD/Pg.pm"},"DBD::Pg":{"file":"Pg.pm","version":"v3.10.0"}},"pathname":"T/TU/TURNSTEP/DBD-Pg-3.10.0.tar.gz","version":"v3.10.0","dist":"DBD-Pg-3.10.0","target":"DBD::Pg"}
