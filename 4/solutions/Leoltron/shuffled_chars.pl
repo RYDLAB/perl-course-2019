@@ -14,7 +14,7 @@ local $/ = undef;
 open FH, "< :utf8", $file_name or die $!;
 
 my $string = <FH>;
-$string =~ s/(?<![а-яёa-z]{2})(?<=[а-яёa-z])([а-яёa-z]+)(?=[а-яёa-z])(?![а-яёa-z]{2})/reverse $1 /ieg;
+$string =~ s/(?<!\w{2})(?<=\w)(\w+)(?=\w)/reverse $1 /eg;
 print $string;
 
 close(FH);
