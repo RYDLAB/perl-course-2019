@@ -1,5 +1,6 @@
 package MyApp;
 use Mojo::Base 'Mojolicious';
+use Mojo::Pg;
 
 # This method will run once at server start
 sub startup {
@@ -16,6 +17,20 @@ sub startup {
 
   # Normal route to controller
   $r->get('/')->to('example#welcome');
+
+  my $db = Mojo::Pg->new($config->{posgresql}{url});
+  
+  $db->migrations->from_file(
+    $self->home->rel_file('./etc/migrations.sql')
+  );
+  
+  $self->attr(
+    db => sub { $db },
+  );
+
+  $self->attr(
+    pg => sub { $self->db->db },
+  );
 }
 
-1;
+1
