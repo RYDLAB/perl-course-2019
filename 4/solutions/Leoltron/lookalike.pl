@@ -26,7 +26,7 @@ while (<$fh>) {
     unless (chars_from_same_language($_)) {
         eval(/[qwrtuisdfghjklzvbnmQWRYUISDFGJKLZVN]/ ? $rus_to_eng : $eng_to_rus);
     }
-    print $_
+    print
 }
 close $fh;
 
