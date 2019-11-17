@@ -17,7 +17,7 @@ my $original_text = join '', <$filehandle>;
 
 close($filehandle);
 
-$original_text =~ s/(\w)([\w]{2,})(\w)/$1.(reverse $2).$3/eg;
+$original_text =~ s/(\w)(\w{2,})(\w)/$1.(reverse $2).$3/eg;
 print $original_text;
 
 __END__
