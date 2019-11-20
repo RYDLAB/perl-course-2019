@@ -1,0 +1,3 @@
+% layout 'default';
+% title 'main_page';
+<%= 'main page with list of snippets' %>

@@ -1,0 +1,6 @@
+% layout 'default';
+% title 'create_page';
+<%= 'page for input data for new snippet' %>
+<form action="create" method="post">
+	<input type="submit" value="create">
+</form>
