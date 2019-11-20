@@ -3,7 +3,6 @@ package Ant;
 use strict;
 use warnings;
 
-use Exporter;
 use parent qw( Exporter );
 
 use constant {
