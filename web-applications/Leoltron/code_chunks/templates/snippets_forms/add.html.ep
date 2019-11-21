@@ -1,0 +1,26 @@
+% layout 'default';
+% title 'CodeChunks - Add snippet';
+<input type="file" id="uploadInput">
+<form class="snippet-add-form">
+    <div class="snippet-add-form__parts">
+    </div>
+
+    <div class="snippet-add-form__add-element-buttons">
+    <button type='button' class="button-in-line" onclick="addCode()">Add part</button>
+    <button type='button' class="button-in-line" onclick="addUrl()">Add part from URL</button>
+    <button type='button' class="button-in-line" onclick="addCodeFromFile()">Add part from file</button>
+    </div>
+
+    <div class="controls-row">
+    <input type="submit" value="Save" class="button button_primary snippet-add-form__submit"/>
+    <div class="checkbox-wrapper">
+        <label class="checkbox-label">
+            <input class="classic-checkbox" id="isPrivate" type="checkbox">
+            <span class="custom-checkbox"></span>
+            <span>Private</span>
+        </label>
+    </div>
+
+    </div>
+</form>
+<script src="/scripts/addSnippet.js"></script>

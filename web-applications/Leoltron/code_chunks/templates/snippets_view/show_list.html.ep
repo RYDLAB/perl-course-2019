@@ -1,0 +1,21 @@
+% layout 'default';
+% title 'CodeChunks';
+<div class="article_list">
+    % for my $snippet (@{$snippets}) {
+    <article class="snippet_preview">
+        <div class="controls">
+            <div class="button_row">
+                <a class="button button_primary" href="/<%= $snippet->{'url'} %>">Show full</a>
+                <a class="button button_secondary" href="/<%= $snippet->{'url'} %>/raw">Raw</a>
+            </div>
+            <div class="controls__size"><%= $snippet->{'total_length'} %> characters</div>
+            <div class="controls__creationDate"><%= $snippet->{'creation_date'} %></div>
+        </div>
+        <pre><code><%= $snippet->{'text_short'} %></code></pre>
+    </article>
+    %}
+</div>
+<div class="loadingWrapper hide">
+<img src="/logo.svg" class="loadingIcon">
+</div>
+<script src="/scripts/list.js"></script>

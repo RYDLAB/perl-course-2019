@@ -1,0 +1,32 @@
+.header
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 70px;
+    padding-right: 50px;
+    padding-left: 50px;
+
+    border-bottom: 1px solid black;
+}
+
+.logo
+{
+    display: flex;
+    align-items: center;
+}
+
+.logo__title
+{
+    font-family: 'Tomorrow', 'Courier New', monospace;
+    font-size: 20px;
+
+    color: black;
+}
+
+.logo__icon
+{
+    width: 50px;
+    margin: 15px;
+}

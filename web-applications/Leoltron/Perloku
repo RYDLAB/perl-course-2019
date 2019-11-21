@@ -1,0 +1,2 @@
+#!/bin/sh
+./code_chunks/script/code_chunks daemon --listen http://*:$PORT

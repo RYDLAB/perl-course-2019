@@ -1,0 +1,2 @@
+requires 'Mojolicious',	'== 8.25';
+requires 'Mojo::Pg',	'== 4.17';

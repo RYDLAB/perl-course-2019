@@ -1,0 +1,14 @@
+% layout 'default';
+% title 'CodeChunks';
+<div>
+<article class="snippet_preview">
+    <div class="controls">
+        <div class="button_row">
+            <a class="button button_secondary" href="/<%= $snippet->{'url'} %>/raw">Raw</a>
+        </div>
+        <div class="controls__size"><%= length($snippet->{'text'}) %> characters</div>
+        <div class="controls__creationDate"><%= $snippet->{'creation_date'} %></div>
+    </div>
+    <pre><code><%= $snippet->{'text'} %></code></pre>
+</article>
+</div>
