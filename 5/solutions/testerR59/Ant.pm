@@ -30,18 +30,15 @@ sub hello {
 sub travel {
     my ( $self, $field, $pos_x, $pos_y, $steps, $dir_x, $dir_y ) = @_;
 
-    $self->{'pos_x'} = $pos_x;
-    $self->{'pos_y'} = $pos_y;
-    $self->{'dir_x'} = $dir_x;
-    $self->{'dir_y'} = $dir_y;
+    @{$self}{qw( pos_x pos_y dir_x dir_y )} = ($pos_x, $pos_y, $dir_x, $dir_y);
 
     my $field_size = @$field;
 
     for( 1 .. $steps ) {
-        my $turn_direction = $field->[$self->{'pos_x'}][$self->{'pos_y'}];
-        $field->[$self->{'pos_x'}][$self->{'pos_y'}] = -$turn_direction;
-        $self->turn( $turn_direction );
+        my $cell = \$field->[$self->{'pos_x'}][$self->{'pos_y'}];
+        $self->turn( $$cell );
         $self->step_forward( $field_size );
+        $$cell = -$$cell;
     }
 
     return $self
@@ -50,8 +47,10 @@ sub travel {
 sub step_forward {
     my ( $self, $field_size )  = @_;
 
-    $self->{'pos_x'} = ($self->{'pos_x'} + $self->{'dir_x'}) % $field_size;
-    $self->{'pos_y'} = ($self->{'pos_y'} + $self->{'dir_y'}) % $field_size;
+    my ( $px, $py, $dx, $dy ) = \@{$self}{qw( pos_x pos_y dir_x dir_y )};
+
+    $$px = ($$px + $$dx) % $field_size;
+    $$py = ($$py + $$dy) % $field_size;
     
     return $self
 }
@@ -59,8 +58,10 @@ sub step_forward {
 sub turn {
     my ( $self, $turn_direction ) = @_;
 
-    ($self->{'dir_x'}, $self->{'dir_y'}) = ( -$self->{'dir_y'},  $self->{'dir_x'} ) if $turn_direction == TURN_LEFT;
-    ($self->{'dir_x'}, $self->{'dir_y'}) = (  $self->{'dir_y'}, -$self->{'dir_x'} ) if $turn_direction == TURN_RIGHT;
+    my ( $dx, $dy ) = \@{$self}{'dir_x', 'dir_y'};
+
+    ( $$dx, $$dy ) = ( -$$dy,  $$dx ) if $turn_direction == TURN_LEFT;
+    ( $$dx, $$dy ) = (  $$dy, -$$dx ) if $turn_direction == TURN_RIGHT;
 
     return $self
 }
