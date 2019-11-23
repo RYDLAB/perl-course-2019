@@ -1,26 +1,41 @@
-#!/usr/bin/env perl
-
+use strict;
+use warnings;
 use Pod::Usage qw(pod2usage);
 
 pod2usage( -verbose => 99 ) if -t STDIN;
 
-...
+my $letter = 'a-zA-Z';
+my $str = <>;
 
-__END__
-=pod
+my $strold = "";
+my $flag = 1;
 
-=encoding UTF-8
+while($flag){
+	$str =~ s/([$letter])[^$letter]*([$letter])[^$letter]*([$letter])/
+		ord($1) - ord($2) == ord($2) - ord($3) && abs(ord($2) - ord($3)) == 1 ? "$1-$3" : $&/eg;
+	$flag = 0 if $strold eq $str;
+	$strold = $str;
+}
 
-=head1 ИМЯ
+$strold = "";
+$flag = 1;
 
-range.pl
+while($flag){
+	$str =~ s/([$letter])-([$letter])([$letter])/
+		abs(ord($2)-ord($3)) == 1? "$1-$3" : $&/eg;
+	$flag = 0 if $strold eq $str;
+	$strold = $str;
+}
 
-Принимает список английских букв с произвольным разделителем (или без него), и преобразует идущие подряд символы в диапазоны:
+$strold = "";
+$flag = 1;
 
-a b c d d c b a -> a-d d-a
+while($flag){
+	$str =~ s/-[$letter]-/-/g;
+	$flag = 0 if $strold eq $str;
+	$strold = $str;
+}
 
-xyz -> x-z
+$str =~ s/([$letter])([$letter])/$1,$2/g;
 
-=head1 СИНТАКСИС
-
-echo abc | ./range.pl
+print "$str";
