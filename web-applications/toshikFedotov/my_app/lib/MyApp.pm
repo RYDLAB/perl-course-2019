@@ -16,7 +16,31 @@ sub startup {
   my $r = $self->routes;
 
   # Normal route to controller
-  $r->get('/')->to('example#welcome');
+
+  $r->get('/')->to(
+    controller => 'root',
+    action => 'mainpage',
+  );
+
+  $r->get('/about')->to(
+    controller => 'root',
+    action => 'show_about',
+  );
+
+  my $snippet = $r->any('/snippet')->to(controller => 'snippet');
+
+  $snippet->get('/new')->to(action => 'create_snippet');
+
+  $snippet->get('/id=<:snip_id>')->to(action => 'snippet_by_id');
+
+  $snippet->get('/key=<:encr_key>')->to(action => 'snippet_by_key');
+  
+  my $search = $r->any('/search')->to(controller => 'search');
+
+  $search->get('/')->to(action => 'search_page');
+
+  $search->get('/title=<:title_name>')->to(action => 'search_by_title');
+
 
   my $db = Mojo::Pg->new($config->{posgresql}{url});
 

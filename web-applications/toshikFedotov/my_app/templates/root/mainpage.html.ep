@@ -1,0 +1,8 @@
+<head>
+    <title>Mega-Code</title>
+</head>
+<body>
+    % for my $i (1..50) {
+        <a href=snippet/id=<%= $i %>>Snippet #<%= $i %></a>
+    % }
+</body>

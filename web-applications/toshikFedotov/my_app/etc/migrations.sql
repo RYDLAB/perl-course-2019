@@ -16,12 +16,13 @@ BEGIN;
     CREATE TABLE codefiles (
         id          BIGINT   PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         snippet_id  BIGINT   REFERENCES snippets (id) ON DELETE CASCADE,
+        title       TEXT     NOT NULL,
         queue_num   SMALLINT NOT NULL,
         content     TEXT     NOT NULL 
     );
 
-    CREATE TABLE encrypted_links (
-        encrypted_link TEXT   PRIMARY KEY
+    CREATE TABLE encrypted_keys (
+        encrypted_key  TEXT   PRIMARY KEY
         id             BIGINT REFERENCES snippets(id) ON DELETE CASCADE
     );
 END;
