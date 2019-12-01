@@ -1,0 +1,3 @@
+requires 'Mojolicious',	'== 8.25';
+requires 'Mojo::Pg',	'== 4.17';
+requires 'LWP::Simple', '== 6.42';
