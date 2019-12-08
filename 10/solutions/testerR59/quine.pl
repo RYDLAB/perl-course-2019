@@ -1,0 +1,1 @@
+use Mojolicious::Lite;get$0=~s|.*/||r,sub{open 0;pop->render(text=><0>)};app->start
