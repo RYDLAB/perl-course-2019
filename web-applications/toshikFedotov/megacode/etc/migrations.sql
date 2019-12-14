@@ -1,3 +1,13 @@
+-- 2 up
+
+INSERT INTO languages(name) VALUES
+('txt'),('perl'), ('c++'), ('html'), ('css'), ('js');
+
+-- 2 down
+
+DELETE FROM languages WHERE
+name IN ('txt', 'perl', 'c++', 'html', 'css', 'js');
+
 -- 1 up
 BEGIN;
     CREATE TABLE snippets (

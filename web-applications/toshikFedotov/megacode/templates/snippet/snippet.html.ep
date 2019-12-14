@@ -1,0 +1,15 @@
+% layout 'default';
+% title "Snippet #$snip_id";
+%= stylesheet '/snippet/snippet.css';
+
+<h1><%= $res->{'snippet'}{'title'} %> </h1>
+<p>Created <%= $res->{'snippet'}{'creating_date'}%></p>
+<div class='file'>
+    <div class='file-info'>
+        <span><%= $res->{'files'}->{'title'} %>, </span>
+        <span><%= $res->{'languages'}->{'name'} %></span>
+    </div>
+    <div class='code-place'>
+        <pre><%= $res->{'files'}->{'content'}%></pre>
+    </div>
+</div>
