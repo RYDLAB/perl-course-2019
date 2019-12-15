@@ -1,0 +1,1 @@
+use Mojolicious::Lite;get q=>sub{open FD,'<','q';pop->render(text=><FD>)};app->start
