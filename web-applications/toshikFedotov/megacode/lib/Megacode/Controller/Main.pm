@@ -9,6 +9,8 @@ sub mainpage {
         snippets => $snippets
     );
 
+    $self->stash(total_items => 30, items_per_page => 10);
+
     $self->render('main/mainpage');
 }
 

@@ -20,6 +20,10 @@ sub get_snippets {
              snippet_id = (?)', $snippet->{id}
         )->hash;
 
+        # limit the content of the file to ten lines
+        $snippet->{file}{content} = $&."\n..." if $snippet->{file}{content} =~ /(.*\n){10}/;
+        
+
         $snippet->{language} = $db->query(
             'select name from languages where
              id = (?)', $snippet->{file}{language_id}

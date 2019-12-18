@@ -19,9 +19,12 @@ sub search_by_title {
     my $title = $self->param('title_name');
 
     my $snippets = $self->app->model('Search')->get_results($title);
-    $self->stash(snippets => $snippets);
-
-    $self->render();
+    if (defined $snippets->[0]{title}) {
+        $self->stash(snippets => $snippets);
+        $self->render();
+    } else {
+        $self->render(template => 'search/search_not_found');
+    }
 }
 
 1

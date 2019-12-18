@@ -23,8 +23,6 @@ sub startup {
 
   $main->get('/')->to(action => 'mainpage');
 
-  $main->get('/page/:n_page')->to(action =>'show_10_snippets');
-
   $main->get('/about')->to(action => 'about');
 
 # Snippets
@@ -49,10 +47,10 @@ sub startup {
 
   $search->post('/')->to(action => 'get_title');
 
-  $search->get('/title/<:title_name>')->to(action => 'search_by_title');
+  $search->get('/title/<*title_name>')->to(action => 'search_by_title');
 
 
-  my $db = Mojo::Pg->new($config->{posgresql}{url});
+  my $db = Mojo::Pg->new($config->{postgresql}{url});
 
   $db->migrations->from_file(
     $self->home->rel_file('/etc/migrations.sql')
