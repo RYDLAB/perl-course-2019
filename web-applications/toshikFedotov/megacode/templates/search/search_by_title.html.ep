@@ -1,0 +1,20 @@
+% layout 'default';
+% title 'Searching result';
+%= stylesheet '/main/snippets.css';
+
+% foreach my $snippet (@$snippets) {
+    <section class='snippet'>
+        <a href=<%= '/snippet/id/' . $snippet->{id} %>>
+            <h2 class='snippet-title'><%= $snippet->{title} %></h2>
+        </a>
+        % $snippet->{creating_date} =~ s/.*\K\..*(\+\d+)/ UTC$1/; 
+        <p><%= $snippet->{creating_date} %></p>
+        <div class='file-info'>
+            <span><%= $snippet->{file}{title}  %>, <%= $snippet->{language}  %> </span>
+        </div>
+        <div class='code-place'>
+            <pre><%= $snippet->{file}{content}  %></pre>
+        </div>
+    </section>
+% }
+

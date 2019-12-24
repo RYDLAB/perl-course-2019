@@ -415,6 +415,13 @@ DISTRIBUTIONS
       Module::Build::Tiny 0.035
       Mojolicious 5.80
       perl 5.010001
+  Mojolicious-Plugin-Pager-0.05
+    pathname: J/JH/JHTHORSEN/Mojolicious-Plugin-Pager-0.05.tar.gz
+    provides:
+      Mojolicious::Plugin::Pager 0.05
+    requirements:
+      ExtUtils::MakeMaker 0
+      Mojolicious 7.20
   Moo-2.003006
     pathname: H/HA/HAARG/Moo-2.003006.tar.gz
     provides:

@@ -1,0 +1,31 @@
+.creating-conteiner {
+    padding: 10px;
+}
+
+input {
+    margin: 10px;
+}
+
+.code-area {
+    font-style: courier;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.code-area:focus {
+    border: 1px solid blue;
+}
+
+.btn {
+    width: 150px;
+    height: 50px;
+    position: relative;
+    margin: 20px;
+    padding: 1px;
+    left: 20em;
+    background: #dbe9e8;
+}
+
+.btn:hover {
+    background: #bdbdf2;
+}

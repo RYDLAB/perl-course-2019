@@ -1,0 +1,14 @@
+.code-place {
+    margin: 10px;
+    margin-top: 0px;
+    padding: 5px;
+    font-style: courier;
+    font-size : 16px;
+    background : white;
+}
+
+.file-info {
+    background: #79a4a1;
+    margin: 10px;
+    margin-bottom: 0px;
+}

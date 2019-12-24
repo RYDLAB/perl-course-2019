@@ -1,0 +1,33 @@
+% layout 'default';
+% title 'Create snippet';
+%= stylesheet '/snippet/creating_page.css';
+
+<div class='creating-conteiner'>
+    <form action='/snippet/new' method=POST>
+        <label>
+            Snippet name
+            <input type='text' name='snippet_name'>
+        </label>
+        <br>
+        <label>
+            File type
+            <select name='file_type'>
+                <option checked value='txt'>TXT</option>
+                <option value='perl'>Perl</option>
+                <option value='c++'>C/C++</option>
+                <option value='html'>HTML</option>
+                <option value='css'>CSS</option>
+                <option value='js'>JavaScript</option>
+            </select>
+        </label>
+        <br>
+        <label>
+            Hide
+            <input type='checkbox' name='is_hide' >
+        </label>
+        <br>
+        <textarea class='code-area' name='content' cols=90 rows=20 placeholder='Content'></textarea>
+        <br>
+        <input class='btn' type='submit' value='Create'>
+    </form>
+</div>

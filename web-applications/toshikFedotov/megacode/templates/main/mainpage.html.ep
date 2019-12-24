@@ -1,0 +1,22 @@
+% layout 'default';
+% title 'Megacode';
+%= stylesheet 'main/snippets.css';
+
+% my $i = 0;
+% foreach my $snip (@$snippets) { 
+%   last if $i > 9;
+    <section class='snippet'>
+        <a href=<%= '/snippet/id/' . $snip->{id} %>>
+            <h2 class='snippet-title'><%= $snip->{title} %></h2>
+        </a>
+        % $snip->{creating_date} =~ s/.*\K\..*(\+\d+)/ UTC$1/;
+        <p><%= $snip->{creating_date} %></p>
+        <div class='file-info'>
+            <span><%= $snip->{file}{title}  %>, <%= $snip->{language}  %> </span> 
+        </div>
+        <div class='code-place'>
+            <pre><%= $snip->{file}{content}  %></pre>
+        </div>
+    </section>
+%   $i++;
+% }
