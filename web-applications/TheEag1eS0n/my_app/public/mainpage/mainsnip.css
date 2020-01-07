@@ -1,0 +1,20 @@
+.snip{
+	border: 1px solid rgba(3, 3, 3, 0.2);
+	border-radius: 5px;
+
+	margin: 15px;
+	padding: 5px;
+}
+
+.snip-title{
+	border-bottom: 1px solid rgba(3, 3, 3, 0.2);
+}
+
+.file-info{
+	margin: 10px 10px 0px 10px;
+}
+
+.code-place{
+	margin: 0px 10px 10px 10px;
+	padding: 5px;
+}

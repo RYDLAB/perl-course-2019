@@ -1,5 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head><title><%= title %></title></head>
-  <body><%= content %></body>
+  <head>
+  	<title><%= title %></title>
+	<link rel="stylesheet" href="/defpage/defstyle/style.css">
+  </head>
+  <body>
+
+  	<header class="mainHeader">
+		<a href="/main" id="Logo" class="icon">
+			<img src="/defpage/deficon/group.svg" alt="" class="logo">
+		</a>
+		
+		<a href="/snippet/new" id="NewSnip" class="menuButton">
+				<span>Create</span>
+			</a>
+		
+		<a href="/searching" id="Search" class="menuButton">
+				<span>Search</span>
+			</a>
+		
+		<a href="/" id="Info" class="menuButton">
+				<span>About</span>
+			</a>
+	</header>
+
+	<div class="content">
+		<%= content %>
+	</div>
+
+	<footer class="mainFooter">
+		<a href="" class="icon">
+			<img src="/defpage/deficon/vk-social-network-logo.svg" alt="">
+		</a>
+	</footer>
+
+  </body>
 </html>

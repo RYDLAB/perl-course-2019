@@ -218,3 +218,135 @@ C<EXE_FILES: dbilogstrip dbiprof dbiproxy>
 
 =back
 
+=head2 Fri Jan  3 19:35:10 2020: C<Module> L<DBD::Pg|DBD::Pg>
+
+=over 4
+
+=item *
+
+C<installed into: /home/qwe/TheEag1eS0n/local/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 3.10.0>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Fri Jan  3 19:35:43 2020: C<Module> L<Mojo::Pg|Mojo::Pg>
+
+=over 4
+
+=item *
+
+C<installed into: /home/qwe/TheEag1eS0n/local/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 4.17>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Mon Jan  6 19:25:16 2020: C<Module> L<ExtUtils::Config|ExtUtils::Config>
+
+=over 4
+
+=item *
+
+C<installed into: /home/qwe/TheEag1eS0n/local/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.008>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Mon Jan  6 19:25:18 2020: C<Module> L<ExtUtils::InstallPaths|ExtUtils::InstallPaths>
+
+=over 4
+
+=item *
+
+C<installed into: /home/qwe/TheEag1eS0n/local/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.012>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Mon Jan  6 19:25:20 2020: C<Module> L<ExtUtils::Helpers|ExtUtils::Helpers>
+
+=over 4
+
+=item *
+
+C<installed into: /home/qwe/TheEag1eS0n/local/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.026>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Mon Jan  6 19:25:23 2020: C<Module> L<Mojolicious::Plugin::Pager|Mojolicious::Plugin::Pager>
+
+=over 4
+
+=item *
+
+C<installed into: /home/qwe/TheEag1eS0n/local/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.05>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
