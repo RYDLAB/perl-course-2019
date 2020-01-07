@@ -17,26 +17,18 @@ sub startup {
   # Router
   my $r = $self->routes;
 
-  # # Normal route to controller
-  # $r->any('/')->to('layouts#default');
-
-
 #main pages
-  my $main = $r->any('/main')->to(
-    controller => 'main',
-    action => 'mainpage'
-  );
+  my $main = $r->any('/')->to(controller => 'main');
+  $main->get('/')->to(action => 'about');
+  $main->get('/main')->to(action => 'mainpage');
 
-  $main = $r->any('/')->to(
-    controller => 'main',
-    action => 'about'
-  );
+#Snippet pages
+  my $snippet = $r->any('/snippet')->to(controller => 'snippet');
+  $snippet->get('/new')->to(action => 'create_snippet');
+  $snippet->post('/new')->to(action => 'get_created_snippet');
+  $snippet->get('/id')->to(action => 'snippet_render');
 
-#snippet pages
-  my $snippet = $r->get('/snippet/new')->to(
-    controller => 'snippet',
-    action => 'create_snippet'
-    );
+  
 
 
   my $db = Mojo::Pg->new($config->{postgresql}{url});

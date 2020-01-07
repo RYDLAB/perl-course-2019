@@ -12,15 +12,15 @@
 		</a>
 		
 		<a href="/snippet/new" id="NewSnip" class="menuButton">
-				<span>Create</span>
+				<span class="span">Create</span>
 			</a>
 		
 		<a href="/searching" id="Search" class="menuButton">
-				<span>Search</span>
+				<span class="span">Search</span>
 			</a>
 		
 		<a href="/" id="Info" class="menuButton">
-				<span>About</span>
+				<span class="span">About</span>
 			</a>
 	</header>
 

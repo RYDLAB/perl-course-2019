@@ -69,8 +69,9 @@ input:focus{
     outline: 1px solid rgba(20, 180, 255, 0.7);
 }
 
-span{
+.s{
     color: rgba(0, 0, 0, 0.6);
+    margin: 0px 0px 10px 0px;
 }
 
 .btns{
