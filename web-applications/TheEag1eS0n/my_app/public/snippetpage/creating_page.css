@@ -1,0 +1,102 @@
+.creating-snip{
+    display: inline-block;
+    text-align: center;
+
+    width: 550px;
+    
+    margin: 50px 0px 50px 0px;
+    padding: 20px;
+
+    border: 1px solid rgba(3, 3, 3, 0.2);
+    border-radius: 20px;
+}
+
+form{
+    display: inline-block;
+
+    width: 527px;
+}
+
+label{
+    display: inline-block;
+    text-align: left;
+    width: 527px;
+}
+
+.snipname{
+    height: 25px;
+    width: 415px;
+
+    margin-right: 7px;
+    text-indent: 3px;
+
+    border: 1px solid rgba(3, 3, 3, 0.2);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+input:focus{
+    outline: 1px solid rgba(20, 180, 255, 0.7);
+}
+
+#Lang{
+    width: 100px;
+    height: 29px;
+
+    border: 1px solid rgba(3, 3, 3, 0.2);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    margin-left: -5px;
+
+    color: rgba(0, 0, 0, 0.6);
+}
+#Lang:focus{
+    outline: 1px solid rgba(20, 180, 255, 0.7);
+}
+
+.code-area{
+    text-indent: 3px;
+
+    width: 525px;
+
+    border: 1px solid rgba(3, 3, 3, 0.2);
+    border-radius: 5px;
+
+    margin: 5px 0px 5px 0px;
+    padding: 0px;
+}
+.code-area:focus{
+    outline: 1px solid rgba(20, 180, 255, 0.7);
+}
+
+.s{
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0px 0px 10px 0px;
+}
+
+.btns{
+    text-align: center;
+    height: 20px;
+    margin-bottom: 10px;
+}
+.btn{
+    width: 100px;
+    height: 25px;
+
+    background: linear-gradient(180deg, white, rgba(230, 230, 230, 0.2));
+    border: 1px solid rgba(3, 3, 3, 0.2);
+    border-radius: 5px;
+    outline: none;
+}
+.btn:hover{
+    background: linear-gradient(180deg, white, rgba(200, 200, 200, 0.3));
+    border-radius: 5px;
+}
+.btn:active{
+    background: linear-gradient(180deg, white, rgba(200, 200, 200, 0.9));
+    border-radius: 5px;
+    outline: none;
+}
+.btn:focus{
+    outline: none;
+}
