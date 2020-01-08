@@ -40,9 +40,9 @@ my ($dir)= @_;
 
 return -s $dir if -f $dir;
 
-opendir(DIR, $dir) if -d $dir;
+opendir(my $d, $dir) if -d $dir;
 my $size = 0;
-my @files = readdir(DIR);
+my @files = readdir($d);
 
 foreach my $file (@files){
 if ($file !~ /\./){
@@ -50,7 +50,7 @@ $size += tree_size("$dir/$file");
 }
 }
 
-closedir(DIR);
+closedir($d);
 return $size;
 
 }
