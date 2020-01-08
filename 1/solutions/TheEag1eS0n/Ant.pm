@@ -74,6 +74,6 @@ my ( $vec_x, $vec_y ) = turn( -1, 0, TURN_LEFT );
 
 sub turn {
 	my ($dir_x, $dir_y, $turnSide) = @_;
-
+ 
 	return $turnSide == TURN_LEFT ? (-$dir_y, $dir_x) : ($dir_y, -$dir_x);
 }
