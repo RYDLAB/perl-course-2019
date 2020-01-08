@@ -1,0 +1,29 @@
+% layout 'default';
+% title 'Snippet';
+%= stylesheet '/snippetpage/snippet.css';
+
+<div class="snippetpage">
+		<div class="sniptitle">
+			<div class="ballast"><a href="/"  class="back">&#8617;</a></div>
+			<div class="title"><h1>snippet</h1></div>
+			<div class="ballast"></div>
+		</div>
+		<div class="snipfile-info">	
+			<div class="name"><span> Name</span></div>
+			<div class="lang"><span>Perl</span></div>
+			<div class="date"><span>08/01/2020</span></div>
+		</div>
+		<div class="snipcontent">
+			<pre>Lorem ipsum dolor sit amet, consectetur
+adipisicing elit. Deleniti officiis,
+illum distinctio quasi, cupiditate aliquid assumenda
+nisi magni quos, optio totam accusantium alias excepturi
+porro nihil temporibus. Natus dicta, enim, odit aspernatur rerum
+iure facere quos, ut sunt excepturi omnis.</pre>
+		</div>
+		<div class="buttons">
+			<button class="copybtn">
+				<img src="/snippetpage/snippeticons/copy.svg" alt="copy" class="copy">Copy
+			</button>
+		</div>
+	</div>

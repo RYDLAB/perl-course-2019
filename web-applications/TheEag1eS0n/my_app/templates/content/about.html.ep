@@ -1,0 +1,9 @@
+% layout 'default';
+% title 'about me';
+
+%= stylesheet '/mainpage/about.css';
+
+<div>
+	<h1>About me</h1>
+	<p>This is my first project on Mojo. Don`t judge strictly:)</p>
+</div>
