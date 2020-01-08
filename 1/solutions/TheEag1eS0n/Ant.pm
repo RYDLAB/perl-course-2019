@@ -22,8 +22,7 @@ TURN_RIGHT
 =cut
 
 use constant {
-TURN_LEFT => -1,
-TURN_RIGHT => 1,
+TURN_LEFT => -1, TURN_RIGHT => 1,
 };
 
 =head2 travel()
