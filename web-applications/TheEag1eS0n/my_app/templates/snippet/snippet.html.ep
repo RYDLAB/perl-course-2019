@@ -1,0 +1,37 @@
+% layout 'default';
+% title "Snippet #$snip_id";
+%= stylesheet '/snippetpage/snippet.css';
+
+<div class="snippetpage">
+		<div class="sniptitle">
+			<div class="ballast"><a href="/"  class="back">&#8617;</a></div>
+			
+			<div class="title">
+				<h1>
+					<%= $res->{'snippet'}{'title'} %>
+				</h1>
+			</div>
+
+			<div class="ballast"></div>
+		</div>
+
+		<div class="snipfile-info">
+			<div class="name">
+				<span><%= $res->{'languages'}->{'name'}%>:	<%= $res->{'files'}->{'title'} %></span>
+			</div>
+
+			<div class="date">
+				% $res->{'snippet'}{'creating_date'} =~ s/.{19}\K.*//;
+				<span><%= $res->{'snippet'}{'creating_date'} %></span>
+			</div>
+		</div>
+
+		<div class="snipcontent">
+			<pre><%= $res->{'files'}->{'content'}%></pre>
+		</div>
+		<div class="buttons">
+			<button class="copybtn">
+				<img src="/snippetpage/snippeticons/copy.svg" alt="copy" class="copy">Copy
+			</button>
+		</div>
+	</div>

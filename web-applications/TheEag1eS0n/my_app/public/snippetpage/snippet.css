@@ -1,0 +1,103 @@
+body{
+	font-family: sans-serif;
+}
+
+.snippetpage{
+	display: inline-block;
+	width: 530px;
+
+	margin: 50px 0px 50px 0px;
+	padding: 10px;
+
+	border: 1px solid rgba(3, 3, 3, 0.2);
+	border-radius: 5px;
+}
+
+.sniptitle{
+	display: flex;
+	justify-content: space-between;
+}
+.ballast{
+	width: 30px;
+}
+h1{
+	display: inline-block;
+	margin: 0px 0px 10px 0px;
+}
+.back{
+	text-decoration: none;
+	color: black;
+
+	font-size: 30px;
+}
+
+.snipfile-info{
+	border-top: 1px solid rgba(3, 3, 3, 0.2);
+
+	display: flex;
+	justify-content: space-between;
+
+	padding: 10px 0px 10px 0px;
+}
+
+.snipcontent{
+	border-top: 1px solid rgba(3, 3, 3, 0.2);
+}
+.snipcontent>p{
+	margin: 15px 0px 10px 0px;
+}
+
+.name, .lang, .date{
+	display: inline-block;
+
+	width: 150px;
+
+	text-align: center;
+}
+.name{
+	text-align: left;
+}
+.date{
+	text-align: right;
+}
+
+.buttons{
+	display: flex;
+	justify-content: flex-end;
+
+	padding: 10px 0px 0px 0px;
+
+	border-top: 1px solid rgba(3, 3, 3, 0.2);
+}
+.copybtn{
+	display: flex;
+	align-items: center;
+
+	width: 70px;
+	height: 30px;
+
+	background: rgba(100, 100, 100, 0.1);
+
+	border: 1px solid rgba(3, 3, 3, 0.2);
+	border-radius: 3px;
+	padding: 0px;
+	outline: none;
+
+	font-size: 15px;
+}
+.copybtn:hover{
+	background: linear-gradient(0deg, rgba(3, 3, 3, 0.1), white);
+	border: 1px solid rgba(3, 3, 3, 0.2);
+}
+.copybtn:active{
+	background: linear-gradient(180deg, rgba(3, 3, 3, 0.1), white);
+}
+.copy{
+	width: 16px;
+
+	margin: 0px 5px;
+}
+
+pre{
+	text-align: left;
+}

@@ -1,0 +1,28 @@
+% layout 'default';
+% title 'Create snippet';
+%= stylesheet '/snippetpage/creating_page.css';
+
+<div class="creating-snip">
+    <form action="/snippet/new" method=POST>
+        <label for="">
+            <input class="snipname" type="text" placeholder="Snippet name" name='snippet_name'>
+            <select name="file_type" id="Lang">
+                <option checked value="txt">TXT</option>
+                <option value="perl">Perl</option>
+                <option value="c++">C/C++</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="js">JS</option>
+            </select>
+        </label>
+        <br>
+        <textarea class="code-area" cols="70" rows="20" placeholder="Code" name='content'></textarea>
+        <br>
+        <label for="" class="btns">
+            <p class="s">
+                Click <sub><input class="secret" type="checkbox" name="is_hide"></sub>, to give a secret:)
+            </p>
+        </label>
+        <input type="submit" class="btn" value="Create">
+    </form>
+</div>
