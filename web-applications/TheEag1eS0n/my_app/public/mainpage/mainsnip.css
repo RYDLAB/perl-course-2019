@@ -1,0 +1,30 @@
+.snip{
+	display: block;
+	width: 593px;
+
+	border: 1px solid rgba(3, 3, 3, 0.2);
+	border-radius: 5px;
+
+	margin: 15px auto;
+	padding: 5px;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+.snip-title{
+	border-bottom: 1px solid rgba(3, 3, 3, 0.2);
+}
+
+.file-info{
+	display: flex;
+	justify-content: space-around;
+	margin: 10px 10px 0px 10px;
+}
+
+.code-place{
+	margin: 0px 10px 10px 10px;
+	padding: 5px;
+}

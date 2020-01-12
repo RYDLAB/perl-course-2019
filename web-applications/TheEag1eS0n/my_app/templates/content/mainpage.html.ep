@@ -1,0 +1,27 @@
+% layout 'default';
+% title 'MyApp';
+%= stylesheet '/mainpage/mainsnip.css';
+
+% my $i = 0;
+% foreach my $snip (@$snippets) {
+	
+	<div class='snip'>	
+		<a href=<%='/snippet/id/'.$snip->{id} %>>
+			<h2 class='snip-title'><%= $snip->{title} %></h2>
+		</a>
+
+		% $snip->{creating_date} =~ s/.{19}\K.*//;
+	
+		<div class='file-info'>
+			<span><%= $snip->{file}{title} %> <%= $snip->{language} %></span>
+			<span><%= $snip->{creating_date} %></span>
+		</div>
+
+		<div class='code-place'>
+			<pre><%= $snip->{file}{content} %></pre>
+		</div>
+	</div>
+
+	% $i++;
+
+% }
