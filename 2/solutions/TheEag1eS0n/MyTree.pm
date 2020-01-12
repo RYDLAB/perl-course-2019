@@ -36,23 +36,22 @@ my $size = tree_size( '~/foo' );
 =cut
 
 sub tree_size {
-my ($dir)= @_;
+	my ($dir)= @_;
 
-return -s $dir if -f $dir;
+	return -s $dir if -f $dir;
 
-opendir(DIR, $dir) if -d $dir;
-my $size = 0;
-my @files = readdir(DIR);
+	opendir(my $d, $dir) if -d $dir;
+	my $size = 0;
+	my @files = readdir($d);
 
-foreach my $file (@files){
-if ($file !~ /\./){
-$size += tree_size("$dir/$file");
-}
-}
+	foreach my $file (@files){
+		if ($file !~ /\./){
+			$size += tree_size("$dir/$file");
+		}
+	}
 
-closedir(DIR);
-return $size;
-
+	closedir($d);
+	return $size;
 }
 
 =head2 tree_size_i()
